@@ -14,7 +14,7 @@ class TaskIn(TaskBase):
 
 
 class TaskOut(TaskBase):
-    pass
+    id: int
 
 class TaskUpdate(TaskBase):
     title: str | None
