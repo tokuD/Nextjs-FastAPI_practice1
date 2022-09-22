@@ -9,8 +9,9 @@ import {
 import React, { useEffect, useState } from "react"
 import { Task } from "../types/task"
 import DeleteIcon from "@mui/icons-material/Delete"
+import EditIcon from "@mui/icons-material/Edit"
 type Props = {
-  task: Task,
+  task: Task
   deleteTaskHandler: (id: number) => void
 }
 
@@ -67,10 +68,16 @@ const TaskItem = (props: Props) => {
           }
           label={task.title}
         />
-        <Button color="error" onClick={deleteHandler}>
-          <DeleteIcon className="text-red-500" />
-          <Typography className="text-red-500">DELETE</Typography>
-        </Button>
+        <Box>
+          <Button color="primary">
+            <EditIcon className="text-blue-400" />
+            <Typography className="text-blue-500">EDIT</Typography>
+          </Button>
+          <Button color="error" onClick={deleteHandler}>
+            <DeleteIcon className="text-red-500" />
+            <Typography className="text-red-500">DELETE</Typography>
+          </Button>
+        </Box>
       </Box>
     </React.Fragment>
   )
