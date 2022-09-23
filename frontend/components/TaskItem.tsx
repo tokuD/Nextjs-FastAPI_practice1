@@ -59,6 +59,7 @@ const TaskItem = (props: Props) => {
     console.log(data)
   }, [task, isCompleted])
 
+
   return (
     <React.Fragment>
       <Box className="flex items-center justify-between">
@@ -67,6 +68,7 @@ const TaskItem = (props: Props) => {
             <Checkbox checked={isCompleted} onChange={checkedChangeHandler} />
           }
           label={task.title}
+          className={isCompleted ? "text-gray-400" : "text-gray-900"}
         />
         <Box>
           <Button color="primary">
