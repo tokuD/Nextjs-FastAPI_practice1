@@ -1,3 +1,4 @@
+from typing import Union
 from pydantic import BaseModel
 
 
@@ -17,5 +18,5 @@ class TaskOut(TaskBase):
     id: int
 
 class TaskUpdate(TaskBase):
-    title: str | None
-    is_completed: bool | None
+    title: Union[str, None]
+    is_completed: Union[bool, None]

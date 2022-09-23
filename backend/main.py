@@ -7,6 +7,10 @@ from routers import task
 models.Base.metadata.create_all(bind=engine)
 
 origins = [
+    "http://todofront-fh6j.vercel.app",
+    "https://todofront-fh6j.vercel.app",
+    "http://todofront-fh6j.vercel.app/",
+    "https://todofront-fh6j.vercel.app/",
     "http://localhost",
     "http://localhost:3000",
 ]
@@ -21,3 +25,7 @@ app.add_middleware(
 )
 app.include_router(task.router)
 
+
+@app.get("/")
+def root():
+    return {"message": "Hello World"}

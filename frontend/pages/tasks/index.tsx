@@ -20,8 +20,9 @@ type Props = {
 }
 
 const addTask = async (title: string) => {
-  const res = await fetch("http://localhost:8000/tasks/create", {
+  const res = await fetch("https://hqb5du.deta.dev/tasks/create", {
     method: "POST",
+    credentials:"include",
     headers: {
       "Content-Type": "application/json",
     },
@@ -122,7 +123,7 @@ const Tasks = (props: Props) => {
 export default Tasks
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch(process.env.BACKEND_HOST + "/tasks")
+  const res = await fetch("https://hqb5du.deta.dev/tasks")
   const tasks = await res.json()
   return {
     props: {

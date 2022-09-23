@@ -16,26 +16,34 @@ type Props = {
 }
 
 const updateTask = async (task: Task, isCompleted: boolean) => {
-  const res = await fetch(`http://localhost:8000/tasks/update?id=${task.id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      title: task.title,
-      is_completed: isCompleted,
-    }),
-  })
+  const res = await fetch(
+    `https://hqb5du.deta.dev/tasks/update?id=${task.id}`,
+    {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: task.title,
+        is_completed: isCompleted,
+      }),
+    }
+  )
   return await res.json()
 }
 
 const deleteTask = async (task: Task) => {
-  const res = await fetch(`http://localhost:8000/tasks/delete?id=${task.id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+  const res = await fetch(
+    `https://hqb5du.deta.dev/tasks/delete?id=${task.id}`,
+    {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  )
   return await res.json()
 }
 
